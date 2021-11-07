@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django App</title>
+    <link rel="stylesheet" href="{%  static 'myapp/styles/index.css'  %}">
+</head>
+<body>
+    <h1>My App</h1>
+    <p>Hello freind !</p>
+    <img src="{% static 'myapp/images/giphy.gif' %}" alt="meme">
+    <div class="divider"></div>
+    <button>Show Hidden Message</button>
+    <h2>{{ useDict.0.name }}</h2>  <!--- keys from the render function  using interpolation to output a variable -->
+    {% if showLanguage %}
+        <h2>{{ useDict.1.name }}</h2>
+    {% else %}
+        <h2>Content Hidden</h2>
+    {% endif %}
+    {% for item in menu %}
+        <p>Name: {{ item.name }} , Price: {{ item.price }} , available: {{ item.quantity }}</p>
+    {% endfor %}
+</body>
+</html>
